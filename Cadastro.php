@@ -24,8 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<h2>Cadastro Time</h2>
 
+<head>
+    
+<h2>Cadastro Time</h2>
+<link rel="stylesheet" href="formulario.css">
+    
+</head>
+    
 <form method="POST">
     Clube: <input type="text" name="clube"><br><br>
     Cidade: <input type="text" name="cidade"><br><br>
