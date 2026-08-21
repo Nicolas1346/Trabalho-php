@@ -1,4 +1,5 @@
 <?php 
+
 $conn = new mysqli(
     '127.0.0.1',
     'root',
@@ -13,41 +14,62 @@ $resultado = $conn->query($sql);
 
 ?>
 
-<h2>Gerenciador campeonatos</h2>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<link rel="stylesheet" href="style.css">
+<head>
 
-<a href="cadastro.php">
-    Cadastrar clube 
-</a>
-<br><br>
+    <meta charset="UTF-8">
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>clube</th>
-        <th>cidade</th>
-        <th>técnico</th>
-        <th>pontos</th>
-        <th>vitorias</th>
-        <th>status</th>
-        <th>ações</th>
-<?php foreach ($resultado as $campeonato) { ?>
+    <title>Gerenciador de Campeonatos</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Gerenciador de Campeonatos</h2>
+
+    <a href="cadastro.php">
+        Cadastrar clube
+    </a>
+
+    <br><br>
+
+    <table>
+
         <tr>
+            <th>ID</th>
+            <th>Clube</th>
+            <th>Cidade</th>
+            <th>Técnico</th>
+            <th>Pontos</th>
+            <th>Vitórias</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+
+        <?php foreach ($resultado as $campeonato) { ?>
+
+        <tr>
+
             <td>
                 <?= $campeonato['id'] ?>
             </td>
 
             <td>
-                <?= $campeonato['clube'] ?>
+                <?= htmlspecialchars($campeonato['clube']) ?>
             </td>
 
             <td>
-                <?= $campeonato['cidade'] ?>
+                <?= htmlspecialchars($campeonato['cidade']) ?>
             </td>
-            
+
             <td>
-                <?= $campeonato['técnico'] ?>
+                <?= htmlspecialchars($campeonato['técnico']) ?>
             </td>
 
             <td>
@@ -59,18 +81,28 @@ $resultado = $conn->query($sql);
             </td>
 
             <td>
-                <?= $campeonato['status'] ?>
+                <?= htmlspecialchars($campeonato['status']) ?>
             </td>
 
             <td>
+
                 <a href="editar.php?id=<?= $campeonato['id'] ?>">
                     Editar
                 </a>
+
                 <a href="delete.php?id=<?= $campeonato['id'] ?>">
                     Excluir
                 </a>
+
             </td>
 
         </tr>
 
-<?php } ?>        
+        <?php } ?>
+
+    </table>
+
+</div>
+
+</body>
+</html>
