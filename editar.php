@@ -49,8 +49,11 @@ if (isset($_GET["id"])) {
 
 ?>
 
+<head>
 <h2>Editar Time</h2>
-
+<link rel="stylesheet" href="formulario.css">
+<head>
+    
 <form method="POST">
 
     <input
