@@ -15,6 +15,8 @@ $resultado = $conn->query($sql);
 
 <h2>Gerenciador campeonatos</h2>
 
+<link rel="stylesheet" href="style.css">
+
 <a href="cadastro.php">
     Cadastrar clube 
 </a>
